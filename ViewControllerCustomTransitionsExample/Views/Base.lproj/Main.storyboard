@@ -44,7 +44,7 @@
                                     <constraint firstAttribute="width" constant="150" id="PJe-E6-YyS"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="15"/>
-                                <state key="normal" title="Present mini">
+                                <state key="normal" title="Present fullscreen">
                                     <color key="titleColor" red="0.99226731061935425" green="0.98032838106155396" blue="0.96790283918380737" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
@@ -80,8 +80,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Another label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MZ8-ZZ-CNS">
-                                <rect key="frame" x="112.5" y="225" width="150.5" height="50"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="FullScreen label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MZ8-ZZ-CNS">
+                                <rect key="frame" x="98" y="225" width="179" height="50"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
@@ -127,21 +127,22 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="60"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mini Title" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E3h-sj-G88">
-                                <rect key="frame" x="112.5" y="19.5" width="150" height="21"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wDk-n8-IKB">
+                                <rect key="frame" x="53" y="15" width="269" height="30"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="150" id="0Sb-T8-LMV"/>
-                                    <constraint firstAttribute="height" constant="21" id="uqS-yp-g89"/>
+                                    <constraint firstAttribute="height" constant="30" id="yZx-KR-d6l"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
-                                <color key="textColor" red="0.99226731061935425" green="0.98032838106155396" blue="0.96790283918380737" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                                <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="18"/>
+                                <state key="normal" title="I'm mini">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.92285293339999996" green="0.00190065999" blue="0.99432152510000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="E3h-sj-G88" firstAttribute="centerY" secondItem="4L8-6Z-JuL" secondAttribute="centerY" id="O2W-tw-Hwr"/>
-                            <constraint firstItem="E3h-sj-G88" firstAttribute="centerX" secondItem="4L8-6Z-JuL" secondAttribute="centerX" id="v3R-dD-Vr4"/>
+                            <constraint firstItem="wDk-n8-IKB" firstAttribute="centerX" secondItem="4L8-6Z-JuL" secondAttribute="centerX" id="T1o-dZ-46m"/>
+                            <constraint firstItem="wDk-n8-IKB" firstAttribute="leading" secondItem="4L8-6Z-JuL" secondAttribute="leading" constant="53" id="c9p-5k-Ruc"/>
+                            <constraint firstItem="wDk-n8-IKB" firstAttribute="centerY" secondItem="4L8-6Z-JuL" secondAttribute="centerY" id="tcR-Kj-fYM"/>
                         </constraints>
                     </view>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
