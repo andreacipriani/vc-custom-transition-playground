@@ -1,7 +1,7 @@
 import Foundation
 import UIKit
 
-final class ToViewController: UIViewController {
+final class FullScreenViewController: UIViewController {
 
     @IBAction func dismissButtonPressed(_ sender: Any) {
         dismiss(animated: true, completion: nil)

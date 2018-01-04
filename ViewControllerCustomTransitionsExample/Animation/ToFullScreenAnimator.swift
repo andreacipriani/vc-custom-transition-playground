@@ -15,7 +15,7 @@ final class ToFullScreenAnimator: NSObject, UIViewControllerAnimatedTransitionin
 
     func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
         guard let miniVC = transitionContext.viewController(forKey: .from),
-        let fullScreenVC = transitionContext.viewController(forKey: .to) as? ToViewController
+        let fullScreenVC = transitionContext.viewController(forKey: .to) as? FullScreenViewController
             else {
                 return
         }

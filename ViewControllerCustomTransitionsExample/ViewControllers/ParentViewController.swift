@@ -1,6 +1,6 @@
 import UIKit
 
-class ViewController: UIViewController {
+class ParentViewController: UIViewController {
 
     @IBOutlet weak var containerView: UIView!
     var miniViewController: MiniViewController!

@@ -11,7 +11,7 @@ final class MiniViewController: UIViewController {
     }
 
     @IBAction func didPressPresentButton(_ sender: Any) {
-        let toViewController = (storyboard?.instantiateViewController(withIdentifier: "ToViewController"))! as! ToViewController
+        let toViewController = (storyboard?.instantiateViewController(withIdentifier: "FullScreenViewController"))! as! FullScreenViewController
         toViewController.transitioningDelegate = self
         present(toViewController, animated: true, completion: nil)
     }
