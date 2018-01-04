@@ -8,6 +8,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         miniViewController = (storyboard?.instantiateViewController(withIdentifier: "MiniViewController"))! as! MiniViewController
+        miniViewController.containerView = containerView
         addChildViewController(miniViewController)
         miniViewController.view.frame = containerView.bounds
         containerView.addSubview(miniViewController.view)
@@ -16,20 +17,5 @@ class ViewController: UIViewController {
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-    }
-
-    @IBAction func didPressPresentButton(_ sender: Any) {
-        let toViewController = (storyboard?.instantiateViewController(withIdentifier: "ToViewController"))! as! ToViewController
-        toViewController.transitioningDelegate = self
-        present(toViewController, animated: true, completion: nil)
-    }
-}
-
-extension ViewController: UIViewControllerTransitioningDelegate {
-    func animationController(forPresented presented: UIViewController,
-                             presenting: UIViewController,
-                             source: UIViewController)
-        -> UIViewControllerAnimatedTransitioning? {
-            return ToFullScreenAnimator(miniOriginFrame: containerView.frame)
     }
 }

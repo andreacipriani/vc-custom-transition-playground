@@ -7,5 +7,6 @@ final class ToViewController: UIViewController {
         dismiss(animated: true, completion: nil)
     }
 
-    @IBOutlet weak var toTitle: UILabel!
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var dismissButton: UIButton!
 }
