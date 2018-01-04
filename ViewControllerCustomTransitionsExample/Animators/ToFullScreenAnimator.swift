@@ -14,23 +14,21 @@ final class ToFullScreenAnimator: NSObject, UIViewControllerAnimatedTransitionin
     }
 
     func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
-        guard let miniVC = transitionContext.viewController(forKey: .from),
+        guard let parentVC = transitionContext.viewController(forKey: .from) as? ParentViewController,
+        let miniVC = parentVC.miniViewController,
         let fullScreenVC = transitionContext.viewController(forKey: .to) as? FullScreenViewController else {
                 return
         }
-
-        // prepare for screenshot if needed
-
         guard let fullScreenSnapshot = fullScreenVC.view.snapshotView(afterScreenUpdates: true) else { return }
 
         let containerView = transitionContext.containerView
         let finalFrame = transitionContext.finalFrame(for: fullScreenVC)
 
-        // manipulate screenshot if needed
         fullScreenSnapshot.frame = miniOriginFrame
 
         containerView.addSubview(fullScreenVC.view)
         containerView.addSubview(fullScreenSnapshot)
+
         fullScreenVC.view.isHidden = true
         let duration = transitionDuration(using: transitionContext)
 
@@ -44,11 +42,10 @@ final class ToFullScreenAnimator: NSObject, UIViewControllerAnimatedTransitionin
                 }
 
                 UIView.addKeyframe(withRelativeStartTime: 1/3, relativeDuration: 1/3) {
-                    fullScreenSnapshot.alpha = 0.6
+
                 }
 
                 UIView.addKeyframe(withRelativeStartTime: 2/3, relativeDuration: 1/3) {
-                    fullScreenSnapshot.alpha = 0.9
                     fullScreenSnapshot.frame = finalFrame
                 }
         },

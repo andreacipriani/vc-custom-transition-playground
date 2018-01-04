@@ -19,14 +19,15 @@ final class ToMiniAnimator: NSObject, UIViewControllerAnimatedTransitioning {
             return
         }
 
-        guard let fullScreenSnapshot = fullScreenVC.view.snapshotView(afterScreenUpdates: true) else { return }
+        guard let parentSnapshot = parentVC.view.snapshotView(afterScreenUpdates: true) else { return }
         let containerView = transitionContext.containerView
 
-        fullScreenSnapshot.frame = destinationFrame
+        parentSnapshot.frame = destinationFrame
+        parentSnapshot.alpha = 0.75
 
-        containerView.addSubview(fullScreenVC.view)
+        containerView.addSubview(parentSnapshot)
+        parentVC.view.isHidden = true
 
-        fullScreenVC.view.isHidden = true
         let duration = transitionDuration(using: transitionContext)
 
         UIView.animateKeyframes(
@@ -35,18 +36,20 @@ final class ToMiniAnimator: NSObject, UIViewControllerAnimatedTransitioning {
             options: .calculationModeCubic,
             animations: {
                 UIView.addKeyframe(withRelativeStartTime: 0.0, relativeDuration: 1/3) {
-                    fullScreenSnapshot.frame = self.destinationFrame
+                    parentSnapshot.alpha = 0.75
                 }
 
                 UIView.addKeyframe(withRelativeStartTime: 1/3, relativeDuration: 1/3) {
+                    parentSnapshot.alpha = 0.5
                 }
 
                 UIView.addKeyframe(withRelativeStartTime: 2/3, relativeDuration: 1/3) {
+                    parentSnapshot.alpha = 0
                 }
         },
             completion: { _ in
-                fullScreenVC.view.isHidden = false
-                fullScreenSnapshot.removeFromSuperview()
+                parentSnapshot.removeFromSuperview()
+                parentVC.view.isHidden = false
                 if transitionContext.transitionWasCancelled {
                     parentVC.view.removeFromSuperview()
                 }
