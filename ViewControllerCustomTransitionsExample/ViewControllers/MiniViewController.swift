@@ -3,17 +3,18 @@ import UIKit
 
 final class MiniViewController: UIViewController {
 
-    @IBOutlet weak var miniTitle: UILabel!
     var containerView: UIView!
-    
+    @IBOutlet weak var maximizeButton: UIButton!
+
     required init?(coder aDecoder: NSCoder) {
         super .init(coder: aDecoder)
     }
 
     @IBAction func didPressPresentButton(_ sender: Any) {
-        let toViewController = (storyboard?.instantiateViewController(withIdentifier: "FullScreenViewController"))! as! FullScreenViewController
-        toViewController.transitioningDelegate = self
-        present(toViewController, animated: true, completion: nil)
+        let fullScreenViewController = (storyboard?.instantiateViewController(withIdentifier: "FullScreenViewController"))! as! FullScreenViewController
+        fullScreenViewController.containerView = containerView
+        fullScreenViewController.transitioningDelegate = self
+        present(fullScreenViewController, animated: true, completion: nil)
     }
 }
 

@@ -15,20 +15,20 @@ final class ToFullScreenAnimator: NSObject, UIViewControllerAnimatedTransitionin
 
     func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
         guard let miniVC = transitionContext.viewController(forKey: .from),
-        let fullScreenVC = transitionContext.viewController(forKey: .to) as? FullScreenViewController
-            else {
+        let fullScreenVC = transitionContext.viewController(forKey: .to) as? FullScreenViewController else {
                 return
         }
 
-        fullScreenVC.titleLabel.alpha = 0.25
-        fullScreenVC.dismissButton.alpha = 0.25
+        // prepare for screenshot if needed
 
         guard let fullScreenSnapshot = fullScreenVC.view.snapshotView(afterScreenUpdates: true) else { return }
 
         let containerView = transitionContext.containerView
         let finalFrame = transitionContext.finalFrame(for: fullScreenVC)
 
+        // manipulate screenshot if needed
         fullScreenSnapshot.frame = miniOriginFrame
+
         containerView.addSubview(fullScreenVC.view)
         containerView.addSubview(fullScreenSnapshot)
         fullScreenVC.view.isHidden = true
@@ -44,16 +44,16 @@ final class ToFullScreenAnimator: NSObject, UIViewControllerAnimatedTransitionin
                 }
 
                 UIView.addKeyframe(withRelativeStartTime: 1/3, relativeDuration: 1/3) {
+                    fullScreenSnapshot.alpha = 0.6
                 }
 
                 UIView.addKeyframe(withRelativeStartTime: 2/3, relativeDuration: 1/3) {
+                    fullScreenSnapshot.alpha = 0.9
                     fullScreenSnapshot.frame = finalFrame
                 }
         },
             completion: { _ in
                 fullScreenVC.view.isHidden = false
-                fullScreenVC.titleLabel.alpha = 1
-                fullScreenVC.dismissButton.alpha = 1
                 fullScreenSnapshot.removeFromSuperview()
                 miniVC.view.layer.transform = CATransform3DIdentity
                 transitionContext.completeTransition(!transitionContext.transitionWasCancelled)

@@ -135,6 +135,9 @@
                     </view>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="375" height="60"/>
+                    <connections>
+                        <outlet property="maximizeButton" destination="wDk-n8-IKB" id="VRX-KA-meL"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GW3-Ts-IWY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

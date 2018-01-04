@@ -10,6 +10,7 @@
 		6848FB5C1FFD475C008C4B9C /* FullScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6848FB5B1FFD475C008C4B9C /* FullScreenViewController.swift */; };
 		6848FB5E1FFD480F008C4B9C /* MiniViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6848FB5D1FFD480F008C4B9C /* MiniViewController.swift */; };
 		6848FB631FFE5359008C4B9C /* ToFullScreenAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6848FB621FFE5359008C4B9C /* ToFullScreenAnimator.swift */; };
+		6848FB651FFE6D75008C4B9C /* ToMiniAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6848FB641FFE6D75008C4B9C /* ToMiniAnimator.swift */; };
 		68B8224C1FFD2370008ADFFE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68B8224B1FFD2370008ADFFE /* AppDelegate.swift */; };
 		68B8224E1FFD2370008ADFFE /* ParentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68B8224D1FFD2370008ADFFE /* ParentViewController.swift */; };
 		68B822511FFD2370008ADFFE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 68B8224F1FFD2370008ADFFE /* Main.storyboard */; };
@@ -21,6 +22,7 @@
 		6848FB5B1FFD475C008C4B9C /* FullScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullScreenViewController.swift; sourceTree = "<group>"; };
 		6848FB5D1FFD480F008C4B9C /* MiniViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiniViewController.swift; sourceTree = "<group>"; };
 		6848FB621FFE5359008C4B9C /* ToFullScreenAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToFullScreenAnimator.swift; sourceTree = "<group>"; };
+		6848FB641FFE6D75008C4B9C /* ToMiniAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToMiniAnimator.swift; sourceTree = "<group>"; };
 		68B822481FFD2370008ADFFE /* ViewControllerCustomTransitionsExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ViewControllerCustomTransitionsExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		68B8224B1FFD2370008ADFFE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		68B8224D1FFD2370008ADFFE /* ParentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParentViewController.swift; sourceTree = "<group>"; };
@@ -59,12 +61,13 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
-		6848FB611FFE46FD008C4B9C /* Animation */ = {
+		6848FB611FFE46FD008C4B9C /* Animators */ = {
 			isa = PBXGroup;
 			children = (
 				6848FB621FFE5359008C4B9C /* ToFullScreenAnimator.swift */,
+				6848FB641FFE6D75008C4B9C /* ToMiniAnimator.swift */,
 			);
-			path = Animation;
+			path = Animators;
 			sourceTree = "<group>";
 		};
 		68B8223F1FFD2370008ADFFE = {
@@ -87,7 +90,7 @@
 			isa = PBXGroup;
 			children = (
 				68B8224B1FFD2370008ADFFE /* AppDelegate.swift */,
-				6848FB611FFE46FD008C4B9C /* Animation */,
+				6848FB611FFE46FD008C4B9C /* Animators */,
 				6848FB5F1FFE46DA008C4B9C /* ViewControllers */,
 				6848FB601FFE46E9008C4B9C /* Views */,
 				68B822521FFD2370008ADFFE /* Assets.xcassets */,
@@ -173,6 +176,7 @@
 				6848FB631FFE5359008C4B9C /* ToFullScreenAnimator.swift in Sources */,
 				6848FB5C1FFD475C008C4B9C /* FullScreenViewController.swift in Sources */,
 				68B8224C1FFD2370008ADFFE /* AppDelegate.swift in Sources */,
+				6848FB651FFE6D75008C4B9C /* ToMiniAnimator.swift in Sources */,
 				6848FB5E1FFD480F008C4B9C /* MiniViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
