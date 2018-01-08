@@ -20,6 +20,8 @@ final class MiniViewController: UIViewController {
 
     @IBAction func didPressPresentButton(_ sender: Any) {
         let fullScreenViewController = (storyboard?.instantiateViewController(withIdentifier: "FullScreenViewController"))! as! FullScreenViewController
+        let origRelToSuperview = view.superview?.convert(view.frame.origin, from: view.superview?.superview)
+        containerView = UIView(frame: CGRect(origin: CGPoint(x:0, y:-1.0*(origRelToSuperview?.y)!), size: view.frame.size))
         fullScreenViewController.containerView = containerView
         fullScreenViewController.transitioningDelegate = self
         present(fullScreenViewController, animated: true, completion: nil)

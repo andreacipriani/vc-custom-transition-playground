@@ -24,12 +24,12 @@ final class ToFullScreenAnimator: NSObject, UIViewControllerAnimatedTransitionin
         let containerView = transitionContext.containerView
         let finalFrame = transitionContext.finalFrame(for: fullScreenVC)
 
-        fullScreenSnapshot.frame = miniOriginFrame
+        fullScreenSnapshot.frame = CGRect(origin: miniOriginFrame.origin, size: finalFrame.size)
 
         containerView.addSubview(fullScreenVC.view)
         containerView.addSubview(fullScreenSnapshot)
 
-        fullScreenVC.view.isHidden = true
+        fullScreenVC.view.alpha = 0
         let duration = transitionDuration(using: transitionContext)
 
         UIView.animateKeyframes(
@@ -50,9 +50,9 @@ final class ToFullScreenAnimator: NSObject, UIViewControllerAnimatedTransitionin
                 }
         },
             completion: { _ in
-                fullScreenVC.view.isHidden = false
+                fullScreenVC.view.alpha = 1
+                miniVC.view.alpha = 0
                 fullScreenSnapshot.removeFromSuperview()
-                miniVC.view.layer.transform = CATransform3DIdentity
                 transitionContext.completeTransition(!transitionContext.transitionWasCancelled)
         })
     }

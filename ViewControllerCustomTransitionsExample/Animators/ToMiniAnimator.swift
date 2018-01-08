@@ -19,6 +19,8 @@ final class ToMiniAnimator: NSObject, UIViewControllerAnimatedTransitioning {
             return
         }
 
+        guard let miniPlayerView = parentVC.miniViewController.view else { return }
+
         guard let parentSnapshot = parentVC.view.snapshotView(afterScreenUpdates: true) else { return }
         let containerView = transitionContext.containerView
 
@@ -49,6 +51,7 @@ final class ToMiniAnimator: NSObject, UIViewControllerAnimatedTransitioning {
         },
             completion: { _ in
                 parentSnapshot.removeFromSuperview()
+                miniPlayerView.alpha = 1
                 parentVC.view.isHidden = false
                 if transitionContext.transitionWasCancelled {
                     parentVC.view.removeFromSuperview()
