@@ -4,10 +4,18 @@ import UIKit
 final class MiniViewController: UIViewController {
 
     var containerView: UIView!
+    //private var swipeInteractiveTransitor: SwipeInteractiveTransitor!
+
     @IBOutlet weak var maximizeButton: UIButton!
 
     required init?(coder aDecoder: NSCoder) {
-        super .init(coder: aDecoder)
+        super.init(coder: aDecoder)
+    }
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        //swipeInteractiveTransitor = SwipeInteractiveTransitor(viewController: self)
+        self.transitioningDelegate = self
     }
 
     @IBAction func didPressPresentButton(_ sender: Any) {
@@ -25,4 +33,13 @@ extension MiniViewController: UIViewControllerTransitioningDelegate {
         -> UIViewControllerAnimatedTransitioning? {
             return ToFullScreenAnimator(miniOriginFrame: containerView.frame)
     }
+
+//    func interactionControllerForPresentation(using animator: UIViewControllerAnimatedTransitioning) -> UIViewControllerInteractiveTransitioning? {
+//        return swipeInteractiveTransitor
+//    }
+//
+//    func interactionControllerForDismissal(using animator: UIViewControllerAnimatedTransitioning)
+//        -> UIViewControllerInteractiveTransitioning? {
+//            return swipeInteractiveTransitor
+//    }
 }

@@ -14,8 +14,4 @@ class ParentViewController: UIViewController {
         containerView.addSubview(miniViewController.view)
         miniViewController.didMove(toParentViewController: self)
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-    }
 }
